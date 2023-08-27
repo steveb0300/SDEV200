@@ -7,14 +7,23 @@ public class ValidateCard {
 
     // Call main method
 	public static void main(String[] args) {
-		try (Scanner input = new Scanner(System.in)) {
-            // Prompt the user to enter a credit card number as a long integer
-            System.out.print("Enter a credit card number as a long integer: ");
-            long number = input.nextLong();
+		Scanner input = new Scanner(System.in);
+		// Prompt the user to enter a credit card number as a long integer
+		System.out.print("Enter a credit card number as a long integer: ");
 
-            System.out.println(
-                number + " is " + (isValid(number) ? "valid" : "invalid"));
-        }
+      	// loop while scanner is not long and re-prompt
+      	while (!input.hasNextLong()) {
+
+			// if no long is found, print "Not Found:" and input
+			System.out.println("Invalid :" + input.next());
+
+			// Prompt the user to enter a credit card number as a long integer
+			System.out.print("Enter a credit card number as a long integer: ");
+	 	}
+		long number = input.nextLong();
+
+		System.out.println(
+			number + " is " + (isValid(number) ? "valid" : "invalid"));
 	}
 
 	/** Return true if the card number is valid */
