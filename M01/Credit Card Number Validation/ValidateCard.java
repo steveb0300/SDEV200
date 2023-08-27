@@ -1,4 +1,4 @@
-// M01 - Credit Card Validation
+// M01 - Programming Assignment 2
 // Class to validate credit cards
 
 import java.util.Scanner;
@@ -7,20 +7,20 @@ public class ValidateCard {
 
     // Call main method
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+		Scanner userInput = new Scanner(System.in);
 		// Prompt the user to enter a credit card number as a long integer
 		System.out.print("Enter a credit card number as a long integer: ");
 
       	// loop while scanner is not long and re-prompt
-      	while (!input.hasNextLong()) {
+      	while (!userInput.hasNextLong()) {
 
-			// if no long is found, print "Not Found:" and input
-			System.out.println("Invalid :" + input.next());
+			// if no long is found, print "Not Found:" and userInput
+			System.out.println("Invalid :" + userInput.next());
 
 			// Prompt the user to enter a credit card number as a long integer
 			System.out.print("Enter a credit card number as a long integer: ");
 	 	}
-		long number = input.nextLong();
+		long number = userInput.nextLong();
 
 		System.out.println(
 			number + " is " + (isValid(number) ? "valid" : "invalid"));
@@ -29,10 +29,9 @@ public class ValidateCard {
 	/** Return true if the card number is valid */
 	public static boolean isValid(long number) {
 		boolean valid =
-			(getSize(number) >= 13 && getSize(number) <= 16) &&
-			(prefixMatched(number, 4) || prefixMatched(number, 5) ||
-			prefixMatched(number, 37) || prefixMatched(number, 6)) &&
-			((sumOfDoubleEvenPlace(number) + sumOfOddPlace(number)) % 10 == 0);
+			(getSize(number) >= 13 && getSize(number) <= 16) && // Validate the length 
+			(prefixMatched(number, 4) || prefixMatched(number, 5) || prefixMatched(number, 37) || prefixMatched(number, 6)) && // Validate first one or two numbers
+			((sumOfDoubleEvenPlace(number) + sumOfOddPlace(number)) % 10 == 0); // Validate number
 
 		return valid;
 	}
