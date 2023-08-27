@@ -1,82 +1,86 @@
 // M01 - Programming Assignment 3
 // Compare two dimensional arrays
 
+// Imports
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class CompareArrays {
-	/** Main method */
-	public static void main(String[] args) {
-		// Prompt the user to enter two 3 x 3 arrays
-		System.out.print("Enter list1: ");
-		int[][] list1 = getArray();
-		System.out.print("Enter list2: ");
-		int[][] list2 = getArray();
 
-		// Displays whether the two lists are identical
-		System.out.println("The two arrays are" + 
-			(equals(list1, list2) ? " " : " not ") + "identical");
+	// Variables
+	static Boolean islist1Valid = true;
+	static Boolean islist2Valid = true;
+
+	// Main method
+	public static void main(String[] args) {
+
+		// Get user input for first array
+		System.out.print("Enter list1 (9 numbers): ");
+		int[][] list1 = getList1Array();
+
+		// Check if list1 is valid
+		while (!islist1Valid) {
+			islist1Valid = true;
+			System.out.println("Wrong Entry. Enter 9 numbers. Try again");
+			System.out.print("Enter list1 (9 numbers): ");
+			list1 = getList1Array();
+		}
+
+        // Get user input for second array
+		System.out.print("Enter list2 (9 numbers): ");
+		int[][] list2 = getList2Array();
+
+		// Check if list2 is valid
+		while (!islist2Valid) {
+			islist2Valid = true;
+			System.out.println("Wrong Entry. Must be all numbers. Try again");
+			System.out.print("Enter list2 (9 numbers): ");
+			list2 = getList1Array();
+		}
+		
+		// Check if the lists are identical or not
+		if (Arrays.deepEquals(list1, list2)) {
+			System.out.println("The two arrays are identical");
+		} else {
+			System.out.println("The two arrays are not equal");
+		}
 	}
 
-	/** getArray initializes a 3 x 3 array with user input */
-	public static int[][] getArray() {
-		Scanner input = new Scanner(System.in);
+	// Initializes list1 array from user input
+	public static int[][] getList1Array() {
+
+		Scanner input = new Scanner(System.in);		
 		final int ROWS = 3;
 		final int COLUMNS = 3;
 		int[][] m = new int[ROWS][COLUMNS];
 		for (int i = 0; i < m.length; i++) {
 			for (int j = 0; j < m[i].length; j++) {
-				m[i][j] = input.nextInt();
+				try {
+					m[i][j] = input.nextInt();
+				} catch (Exception e) {
+						islist1Valid = false;
+				}
 			}
 		}
 		return m;
 	}
 
+	// Initializes list2 array from user input
+	public static int[][] getList2Array() {
 
-	/** equals returns true if m1 and m2 are identical */
-	public static boolean equals(int[][] m1, int[][] m2) {
-		int[] list1 = sort(m1);
-		int[] list2 = sort(m2);
-		for (int i = 0; i < list1.length; i++) {
-			if (list1[i] != list2[i])
-				return false;
-		}
-		return true;
-	}
-
-	/** matrixToArray returns an array initialized with a matrix elements */
-	public static int[] matrixToArray(int[][] m) {
-		int[] list = new int[m.length * m[0].length];
-		int k = 0;
+		Scanner input = new Scanner(System.in);		
+		final int ROWS = 3;
+		final int COLUMNS = 3;
+		int[][] m = new int[ROWS][COLUMNS];
 		for (int i = 0; i < m.length; i++) {
 			for (int j = 0; j < m[i].length; j++) {
-				list[k] = m[i][j];
-				k++;
-			}
-		}
-		return list;
-	}
-	
-	/** sort sorts each column in a 3 x 3 array in accending order */
-	public static int[] sort(int[][] m) {
-		int [] list = matrixToArray(m);
-		for (int i = 0; i < 3; i++) {
-			// Find the min in the column 1
-			int min = list[i];
-			int minIndex = i;
-
-			for (int j = i + 1; j < 3; j++) {
-				if (min > list[j]) {
-					min = list[j];
-					minIndex = j;
+				try {
+					m[i][j] = input.nextInt();
+				} catch (Exception e) {
+						islist2Valid = false;
 				}
 			}
-
-			// Swap
-			if (minIndex != i) {
-				list[minIndex] = list[i];
-				list[i] = min;
-			}
 		}
-		return list;
+		return m;
 	}
 }
