@@ -1,7 +1,7 @@
 // M02 - Programming Assignment 2
 // Create a triangle 
 
-public class Triangle extends Geo {
+public class Triangle extends GeometricObject {
 
     // Data fields
     private double side1;
@@ -19,26 +19,12 @@ public class Triangle extends Geo {
     // Constructor with specified side lengths
     Triangle(double s1, double s2, double s3) {
 
-        side1 = s1;
-        side2 = s2;
-        side3 = s3;
+        this.side1 = s1;
+        this.side2 = s2;
+        this.side3 = s3;
     }
 
     // Create accessor methods all 3 data fields
-    // Create setter methods
-    public void setSide1(double s1) {
-        side1 = s1;
-    }
-
-    public void setSide2(double s2) {
-        side2 = s2;
-    }
-
-    public void setSide3(double s3) {
-        side3 = s3;
-    }
-
-    // Create getter methods
     public double getSide1() {
         return side1;
     }
@@ -51,8 +37,29 @@ public class Triangle extends Geo {
         return side3;
     }
 
-    // Create area method
+    // Create area method and return using Heron's formula
+    // A = √ s(s-a)(s-b)(s-c)
     public double getArea() {
-        return (0.5 * side1) *
+
+        // s = half the parameter or the sum of sides divided by 2
+        double s = (side1 + side2 + side3) / 2;
+
+        // return the result of Heron's formula
+		return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    // Create perimeter method and return
+    public double getPerimeter() {
+
+        // Add the three sides of triangle and return parimeter
+        return side1 + side2 + side3;
+    }
+
+    // Create a method to return a string of each side length
+    public String toString() {
+
+        return "Triangle: side1 = " + side1 + 
+                        " side2 = " + side2 +
+                        " side3 = " + side3;
     }
 }
