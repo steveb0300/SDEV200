@@ -3,7 +3,6 @@
 // Takes user input and passes it through another class to check if it is binary
 // If it is not binary, it will throw an exception
 
-import java.text.Format;
 import java.util.Scanner;
 
 public class TestBin2Dec {
