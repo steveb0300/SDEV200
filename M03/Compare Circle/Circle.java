@@ -17,8 +17,7 @@ public class Circle extends GeometricObject implements Comparable<Circle> {
 	}
 
     // Circle method with radius, color, and filled
-	public Circle(double radius, 
-		String color, boolean filled) {
+	public Circle(double radius, String color, boolean filled) {
 		this.radius = radius;
 		setColor(color);
 		setFilled(filled);
