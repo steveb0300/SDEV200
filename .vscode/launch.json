@@ -1,0 +1,71 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Exercise24_03",
+            "request": "launch",
+            "mainClass": "Exercise24_03",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "TwoWayLinkedList",
+            "request": "launch",
+            "mainClass": "TwoWayLinkedList",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "DoublyLinkedList",
+            "request": "launch",
+            "mainClass": "DoublyLinkedList",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "CountKeywords",
+            "request": "launch",
+            "mainClass": "CountKeywords",
+            "args": "${command:SpecifyProgramArgs}",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "CompareArrays",
+            "request": "launch",
+            "mainClass": "CompareArrays",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "CompareCircle",
+            "request": "launch",
+            "mainClass": "CompareCircle",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "MatchGroupingSymbols",
+            "request": "launch",
+            "mainClass": "MatchGroupingSymbols",
+            "projectName": "SDEV200_18d0678e"
+        },
+        {
+            "type": "java",
+            "name": "TestTriangle",
+            "request": "launch",
+            "mainClass": "TestTriangle",
+            "projectName": "SDEV200_18d0678e"
+        }
+    ]
+}
