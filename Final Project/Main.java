@@ -96,14 +96,16 @@ public class Main extends Application {
 	            	popupBounds = new Rectangle2D(event.getScreenX() - (zoomWindowWidth/zoomLevel/2), event.getScreenY() - (zoomWindowHeight/zoomLevel/2), zoomWindowWidth/zoomLevel, zoomWindowHeight/zoomLevel);
 	       	     	ZoomWindow zWin = new ZoomWindow();
 	       	     	zoomedImage.setImage(zWin.createPopupWindow(popupBounds));
+	       	     	
+	       	     	// Update zoom window width and height
+	       	     	zoomedImage.setFitWidth(settings.getZoomWindowWidth());
+	       	     	zoomedImage.setFitHeight(settings.getZoomWindowHeight());
 	                
 	                // Update the popup position based on the mouse location
 	                popup.show(primaryStage);
 	                
 	                // Update zoom window position when close to top of screen
 	                if (event.getScreenY() < zoomWindowHeight * 1.6) {
-	                	System.out.println(event.getScreenY());
-	                	//System.out.println(zoomWindowHeight * 1.6);
 	                	popup.setY(event.getScreenY() + zoomWindowHeight/2);
 	                } else {
 	                	popup.setY(event.getScreenY() - zoomWindowHeight * 1.6);
